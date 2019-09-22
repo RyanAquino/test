@@ -4,8 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                   echo 'Hello World'
-                  sh 'ssh a-ryanaq@dcs-b-cocportal01.sjc1 hostname'
-                  sh "ssh -t a-ryanaq@dcs-b-cocportal01.sjc1 'cd /var/www/html/rca ; git status ;'"
+                  sshPublisher(publishers: [sshPublisherDesc(configName: 'gateway', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'whoami', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/var/www/html/rca', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '', usePty: true)], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
         
