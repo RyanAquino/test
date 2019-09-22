@@ -5,8 +5,7 @@ pipeline {
             steps {
                   echo 'Hello World'
                   sshPublisher(publishers: [sshPublisherDesc(configName: 'DCS RCA Beta', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''eval $(ssh-agent)
-cd
-ssh-add .ssh/su_dcs_coc
+echo \'Borate71103!\' | sudo ssh-agent /root/.ssh/
 cd /var/www/html/rca
 echo \'Borate71103!\' | sudo -S git pull
 ''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '', usePty: true)], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
