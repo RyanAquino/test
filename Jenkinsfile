@@ -4,10 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                   echo 'Hello World'
-                  sshPublisher(publishers: [sshPublisherDesc(configName: 'DCS RCA Beta', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''echo \'Borate71103!\' | sudo -S eval $(ssh-agent)
-echo \'Borate71103!\' | sudo -S ssh-add /root/.ssh/su_dcs_coc
-cd /var/www/html/rca
-echo \'Borate71103!\' | sudo -S git pull''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '', usePty: true)], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                  sshPublisher(publishers: [sshPublisherDesc(configName: 'DCS Beta', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /var/www/html/rca
+ls -a''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
         
