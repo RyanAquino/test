@@ -6,7 +6,7 @@ pipeline {
                   echo 'Hello World'
                   sshPublisher(publishers: [sshPublisherDesc(configName: 'DCS Beta', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /var/www/html/rca
 ls -a
-sudo su -''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+sudo su -''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '', usePty: true)], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }      
         }
         
